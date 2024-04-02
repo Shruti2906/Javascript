@@ -61,3 +61,31 @@ delete person.age;
 // delete person;       //this will give error in strict mode and it will give unexpected result in non strict mode
 console.log(Object.keys(person));
 console.log(person.age);
+
+const arr = [1, 2, 4, 5];
+const A = new Array(1, 2, 3);
+console.log(arr[2]);
+
+//Array methods
+arr.push(6);
+console.log(arr);
+arr.pop()
+console.log(arr);
+
+//shift
+arr.shift(1);
+console.log(arr);
+arr.unshift(10);
+console.log(arr);
+arr.push(11, 1);
+console.log(arr);
+
+//slice vs splice
+const a1 = [1, 2, 3, ,4 ,5 ];
+const l1 = a1.slice(1, 3); //it will return copy arr ele from index 1 to 3 (3 exclusive), oroginal array remain unchanged
+console.log("l1",l1);
+console.log("original array a1: ",a1);
+const l2 = a1.splice(1, 3);//it will return copy arr ele from index 1 to 3 (3 exclusive), BUT it will change the original array
+console.log("l2: ",l1);
+console.log("original array a1: ",a1);
+
