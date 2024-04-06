@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>DOM learning</title>
+</head>
+<body>
+    <div class="bg-b">
+        <h1 id="title" class="heading">DOM <span style="display: none;">Manipulation</span> Learning</h1>
+        <p>
+            Lorem ipsum dolor sit amet.
+        </p>
+    </div>
+
+    <ul>
+        <li class="list-Item">one</li>
+        <li class="list-Item">two</li>
+        <li class="list-Item">three</li>
+    </ul>
+</body>
+</html>
+
+<!-- 
+    as its is object we can acces document like this
+    on browser's console : 
+        console.log(window.document) or directly
+        console.log(document) or
+        console.dir(document)
+
+DOM Diagram:
+        
+                    Window
+                      |
+                     HTML
+                /            \
+             Head             Body
+           /   |                |
+       title  meta             div --attribute
+        /       |             /    \
+ text node   attribute      h1       p
+                            /      /    \  
+                      textnode textnode attribute
+
+ -->
+
+
+ <!-- document.getElementById('title').setAttribute('class', "test, Heading");
+
+    const title  = document.getElementById('title');
+    console.log(title);
+
+    title.style.backgroundColor = 'green'
+
+    title.textContent  Vs  title.innerText  Vs  title.innerHTML
+
+    title.innerText:
+            'DOM Learning'
+    title.textContent:
+            'DOM Manipulation Learning '
+    title.innerHTML:
+            (supports html tags as well)
+            <h1 id="title" class="heading">DOM <span style="display: none;">Manipulation</span> Learning </h1>
+    
+-------------------------
+    document.querySelector('h1');
+    document.querySelector('#title');
+    document.querySelector('.hinding');
+    document.querySelector('input[type="password"]');
+
+    document.querySelector('ul');
+    const myul = document.querySelector('ul');          //HERE Return Type is NodeList.
+
+    const tempLiList = document.querySelectorAll("li");
+    tempLiList[0].style.color="green";                                 
+
+//+++ forEach on NodeList:
+    const tempLiList = document.querySelectorAll("li");
+    templist.forEach((item)=>(item.style.color="green"));
+
+
+    const itemList = document.getElementsByClassName("list-Item"); //HERE Return Type is HTMLCollection.
+
+   ** Cannot use forEach() on HTMLCollection. so to use forEach() on it, it needs to be converted into array.
+
+    Array.from(itemList);
+    ArritemList.forEach((l)=>(l.style.color="red"));
+
+
+ -->
