@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+</head>
+<body style="background-color: black; color: #ffff;">
+    <div class="parent">
+    <div>Monday</div>
+    <div>Tuesday</div>
+    <div>Wednesday</div>
+    <div>Thursday</div></div>
+    <script>
+        const parent = document.querySelector(".parent");
+        // console.log(parent);
+        // console.log(parent.children);
+        // console.log(parent.children[1].innerHTML);
+
+        // for(let i=0; i<parent.children.length; i++){
+        //     console.log(parent.children[i].innerHTML);
+        // }
+        const dayOne = parent.firstElementChild;
+        // console.log(dayOne);
+        // //from child to parent
+        // console.log(dayOne.parentElement);
+        // //to sibling element
+        // console.log(dayOne.nextElementSibling);
+
+
+        console.log("NODES: ", parent.childNodes);
+        
+
+        // *****
+        // NodeList - also each line break is considered as node(text node).
+ //** NOTE: Timestamp: 16.00  NodeList discussion, Video: How to create a new element in DOM | chai aur #javascript **
+
+        
+
+        
+    </script>
+</body>
+</html>

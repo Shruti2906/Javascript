@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+</head>
+<body style="background-color: black; color: #ffff;">
+    
+
+
+
+   
+   
+   
+   <script>
+        const div = document.createElement('div')
+        console.log(div);
+        div.className = "main"
+        div.id = Math.round(Math.random() * 10+1 )
+        div.setAttribute("title", "generated title")         //to set custom attribute, in key value pair.
+        div.style.backgroundColor = 'green'
+        //Right now the element is created but its in memory so its not visible on page. it will be visible on page when attached to DOM.
+
+        //setAttribute will directly override, whereas div.innerHTML will first fetch the reference and then it will attatch the value
+
+        const addtext = document.createTextNode("my node");
+        div.appendChild(addtext);
+
+        document.appendChild(div);
+
+    </script>
+</body>
+</html>
