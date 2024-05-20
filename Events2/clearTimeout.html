@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1>Async Project</h1>
+    <button id="stop">Stop</button>
+
+
+<script>
+    //setTimeout() is an API which calls an API
+    // setTimeout(()=>{
+    //     console.log("shruti");
+    // }, 2000);
+
+    const handler = ()=>{
+        console.log("Patil");
+    }
+    
+    const changeText = () => {
+        document.querySelector('h1').innerHTML='Best Js Series';
+    }
+
+    const changeTextTimeout = setTimeout(changeText, 2000);
+
+    const btn = document.querySelector('#stop').addEventListener('click', () => {
+        clearTimeout(changeTextTimeout);
+    })
+    
+
+</script>    
+</body>
+</html>
