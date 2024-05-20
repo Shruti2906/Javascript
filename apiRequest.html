@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Request before fetch()</title>
+</head>
+
+<body style="background-color: 212121;">
+
+    The XMLHttpRequest.readyState property returns the state an XMLHttpRequest client is in. An XHR client exists in one
+    of the following states:
+
+    Value State Description
+    0 UNSENT Client has been created. open() not called yet.
+    1 OPENED open() has been called.
+    2 HEADERS_RECEIVED send() has been called, and headers and status are available.
+    3 LOADING Downloading; responseText holds partial data.
+    4 DONE The operation is complete.
+
+
+    <div id="profileData">
+
+    </div>
+    <button id="getProfileData">Get Profile Data</button>
+
+    <script>
+        const reqUrl = "https://api.github.com/users/shruti2906";
+        const xhr = new XMLHttpRequest();
+        let followers;
+        let profilePic;
+        xhr.onreadystatechange = function () {
+            console.log(xhr.readyState);
+            if (xhr.readyState === 4) {
+                const data = JSON.parse(this.responseText);
+                followers = data.followers;
+                profilePic = data.avatar_url;
+            }
+        }
+
+        const allData = () => {
+            profileData = document.querySelector("#profileData");
+            profileData.innerHTML = `
+                        <img src=${profilePic} alt="profilePic">
+                        <p>Followers: ${followers}</p>
+                `;
+        }
+        document.querySelector("#getProfileData").addEventListener('click', allData, false);
+        xhr.open('GET', reqUrl);
+        xhr.send();
+
+    </script>
+</body>
+
+</html>

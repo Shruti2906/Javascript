@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Html events</title>
+</head>
+<body style="background-color: #414141; color: aliceblue;">
+    <h2>Images</h2>
+    <div>
+
+        <ul id="images">
+            <li><img id="pixelsImages" src="https://images.pexels.com/photos/21369952/pexels-photo-21369952/free-photo-of-a-pot-and-kettle-sit-on-a-stove.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"/></li>
+            <li><img id="pixelsImages2" src="https://images.pexels.com/photos/19987317/pexels-photo-19987317/free-photo-of-ceiling-of-the-library-at-the-university-of-cambridge.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"/></li>
+            <li><img id="pixelsImages3" src="https://images.pexels.com/photos/20684681/pexels-photo-20684681/free-photo-of-a-close-up-of-a-flower-on-a-branch.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>
+            <li><img id="pixelsImages3" class="img3" src="https://images.pexels.com/photos/19036832/pexels-photo-19036832/free-photo-of-mountain-reflection-in-lake.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load" alt=""></li>
+            <li><a href="https://google.com" id="google" style="color: aliceblue;">Google</a></li>
+        </ul>
+    </div>
+    
+<script>
+    // javascript is a sequentially run language, thus all events in js run sequentially, (Although some exceptions are there like async operations, browser events-
+            //  executes on some activity like mouse click, scroll, etc)
+
+    // first approach of adding events: <li><img id="pixelsImages3" src="https://images.pexels.com/ph" onclick="alert('nature')"></li>
+    //second approach: 
+        // document.querySelector('.img3').onclick = function(){//this approach is good but it gives less features
+        //     alert('nature clicked')
+        // }
+// -------------------------------------addEventListner, event Object start---------------------------------------------------
+
+//third approach - best approach
+    // document.querySelector('.img3').addEventListener('click', function(e){
+    //     console.log(e);
+    // }, false); //3rd parameter default is false
+// e is event object
+// to study in event object
+//type, timestamp, defaultPrevented, 
+//target, toElement, srcElement, currentTarget
+//clientX, clientY, screenX, screenY, offset, position related
+//altKey, ctrlKey, shift, keyCode
+
+//Event Propagation
+    // document.querySelector('.img3').addEventListener('click', function(e){
+    //     console.log(e);
+    // }, false);
+
+    
+    //by default its false - 3rd argument in addEventListener
+    //there are 2 contexts of event propagation
+    //1.Event Bubbling
+    //2. Event capturing
+    //by default its false which is evenet bubbling
+
+//bubbling - as buggle gies from inside to outside, first event on li (.img3) will be executed then on ouside element ul, event will be executed
+    // document.querySelector('#images').addEventListener('click', function(e){
+    //     console.log("clicked inside the ul");
+    // }, false)
+
+    // document.querySelector('.img3').addEventListener('click', function(e){
+    //     console.log("nature image clicked");
+    // }, false)
+
+//capturing - in this mode first outside event will be executed and then inside element event. it goes from out to in(i.e top to bottom)
+    // document.querySelector('#images').addEventListener('click', function(e){
+    //     console.log("outer element, clicked inside the ul");
+    // }, true)
+
+    // document.querySelector('.img3').addEventListener('click', function(e){
+    //     console.log("inner element, nature image clicked");
+    // }, true)
+
+//If we want to stop bubbling- eg say in react etc we have event on inner and outer element and we don't want it to bubble, here we can use stopPropagation
+        // document.querySelector('.img3').addEventListener('click', function(e){
+        //     console.log('inner element nature clicked');
+        //     e.stopPropagation();
+        // }, false)
+
+//similar to stopPropagation we have defaultPrevented
+            // document.querySelector('#google').addEventListener('click', function(e){
+            //     e.preventDefault();
+            //     e.stopPropagation();
+            //     console.log('google clicked');
+            // }, false);
+
+
+// ------------------------------------------addEventListener,  event object End----------------------------------------------
+
+//Other approaches - 
+//attachevents
+//jQuery - onEventListners
+//===========================================================================================================================================
+
+document.querySelector('#images').addEventListener('click', function (e){
+
+    if(e.target.tagName === 'IMG'){
+        // console.log(e.target);
+        console.log(e.target.id);
+        console.log(e.target.parentNode);
+        let removeIt = e.target.parentNode;
+        removeIt.remove();
+        // removeIt.parentNode.removeChild(removeIt);
+    }
+
+}, false)
+
+
+//what is addEventListeners - is ir object or what?
+//js reduce method
+</script>
+</body>
+</html>
