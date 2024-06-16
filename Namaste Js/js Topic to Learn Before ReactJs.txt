@@ -1,0 +1,50 @@
+functions
+-arrow functions
+-higher order functions;
+
+Arrays & Objects:
+-Array Destructuring
+-Object Destructuring
+-rest Operator
+-spread operator.
+
+
+conditionals in js:
+-if else
+-ternary operator
+-unary && and ||
+-optional Chaining
+
+
+array Methods:
+-map()
+-filter()
+-reduce()
+-sort()
+
+Event Listeners:
+-onClick
+-onBlur
+-onChange
+-onFocus
+setTimeout() & setInterval()
+event bubbling & catching
+
+
+Asynchronous Events
+-callbacks
+-callback Hell
+-Promises
+-Promise APIs
+async/await
+
+Error Handling
+try/catch
+
+
+
+
+
+
+
+

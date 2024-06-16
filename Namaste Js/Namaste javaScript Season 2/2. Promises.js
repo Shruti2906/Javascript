@@ -120,6 +120,8 @@ createOrder(cart, function (orderId) {
         })
     })
 })
+createOrder();
+
 //Promise Chaining
 createOrder(cart)
 .then(function(orderId){
@@ -141,7 +143,7 @@ createOrder(cart)
 
 
 /*
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
++++++++++++++++++++++++++++ Interview +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 What is promise in js?
 
 ->Promise is an Object that represents eventual completion of an async operation.
